@@ -1,11 +1,7 @@
 import Router from 'koa-router'
-import getHealth from './health/health'
-//import dataUsers from '../data/users'
-import getToken from './token/token.routes'
-
+import carrito from './carrito/carrito.routes'
 const router = new Router()
-router.get('/health', getHealth)
-router.get('/token/:id/:secret/:key', getToken.getToken2)
-router.get('token/:token', getToken.getUsers)
-
+router.get('/productos', carrito.getAllProducts)
+router.get('/productos/id/:id/', carrito.getProductsByID )
+router.get('/productos/marca/:BRAND', carrito.getProductsByBrand)
 export default router
