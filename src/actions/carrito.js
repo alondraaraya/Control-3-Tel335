@@ -1,5 +1,5 @@
 import productos from  "../data/carrito"
-
+import carrito from  "../data/carritoVerdadero"
 exports.getProducts = () => {
     return productos
 };
@@ -27,3 +27,18 @@ exports.getProductsByBrand = (brand) => {
     //deberia retornar un json
     return productosEncontrados
 };
+
+exports.addProduct = (id) => {
+    for (let i = 0; i<productos.length;i++){
+        if(id == productos[i].id){
+            carrito.push(productos[i])
+        }
+    }
+    
+    return carrito
+
+}
+
+exports.getAllItem = () =>{
+    return carrito
+}
