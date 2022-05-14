@@ -40,5 +40,12 @@ exports.addProduct = (id) => {
 }
 
 exports.getAllItem = () =>{
-    return carrito
+    let suma = 0;
+    for (let i = 0;i<carrito.length;i++){
+        suma = suma + carrito[i].precio
+    }
+    let respuesta = []
+    respuesta.push(carrito)
+    respuesta.push(suma)
+    return respuesta
 }
