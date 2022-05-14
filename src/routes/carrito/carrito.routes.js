@@ -19,3 +19,15 @@ exports.getProductsByBrand = (ctx) => {
     ctx.body = response
     return ctx
 }
+
+
+exports.addProduct = (ctx) => {
+    let id = ctx.request.body.id
+    const response = carritoAction.addProduct(id);
+    ctx.body = response
+}
+
+exports.getAllItem = (ctx) => {
+    ctx.body = carritoAction.getAllItem()
+    return ctx;
+}
