@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import SpinnerLoader from "../components/Spinner"
-import MoviesList from "../components/ProductList"
+import ProductList from "../components/ProductList"
 import { configureStore } from "@reduxjs/toolkit"
 import moviesReducer from "../reducer/reducer"
 
@@ -10,22 +10,22 @@ const store = configureStore({
     reducer: moviesReducer
   })
 
-export const listmovies = []
+export const listProductsEnCarrito = []
 export function InfoPanel () {
     const [loaded, setDataLoaded] = useState(false)
     const [moviesData, setMoviesData] = useState([])
 
-    const addMovie = (movie) => {
-        store.dispatch({ type: 'ADD', movie })
-        alert(`Producto agregado: ${movie.Title}`)
-        listmovies.push(movie.Title)
+    const addMovie = (product) => {
+        store.dispatch({ type: 'ADD', product })
+        alert(`Producto agregado: ${product.name}`)
+        listProductsEnCarrito.push(product.name)
 
     }
 
     useEffect(() => {
         const fetchData = async () => {
             if (!loaded) {
-                const result = await axios.get('https://run.mocky.io/v3/23e8c094-1cfe-4127-89b2-60f550452bd9')
+                const result = await axios.get('/data/datos.json')
                 if (result.data) {
                     setDataLoaded(true)
                     setMoviesData(result.data)
@@ -42,7 +42,7 @@ export function InfoPanel () {
     return (
         <div className="App">
             <SpinnerLoader dataLoaded={loaded} />
-            <MoviesList movies={moviesData} onAdd={addMovie} />
+            <ProductList movies={moviesData} onAdd={addMovie} />
         </div>
     )
 }

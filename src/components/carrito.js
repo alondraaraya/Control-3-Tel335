@@ -1,6 +1,6 @@
 import { Row, Col, Button, Modal } from 'react-bootstrap'
 import React, { useState } from 'react';
-import {listmovies} from '../layout/infoPanel.layout'
+import {listProductsEnCarrito} from '../layout/infoPanel.layout'
 
 
 function BotonCarrito() {
@@ -23,9 +23,12 @@ function BotonCarrito() {
           </Modal.Header>
           <Modal.Body>
             {
-            listmovies.map((movie, index)=>(
-            <Col key ={index}>{movie}</Col> ))
+            listProductsEnCarrito.map((product, index)=>(
+            <Col key ={index}>{product}</Col> ))
             }     
+          </Modal.Body>
+          <Modal.Body>
+            Total :    
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
