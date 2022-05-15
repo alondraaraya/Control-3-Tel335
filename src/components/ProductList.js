@@ -1,5 +1,4 @@
-import { Card
-    ,Container, Row, Col, Button, ListGroup, ListGroupItem  } from "react-bootstrap"
+import { Container  } from "react-bootstrap"
 import React from "react";
 import './ProductList.css'
 import ProductsCards from './Productos'
@@ -12,8 +11,8 @@ function ProductsList (props) {
                     <div className="col-12 text-left">
                         <ul className="arrow-styled">
                             {
-                                props.movies.map((movie, index) => (
-                                    ProductsCards(props,movie,index)
+                                props.products.map((product, index) => (
+                                    ProductsCards(props,product,index)
                                 ))
                             }
                         </ul>

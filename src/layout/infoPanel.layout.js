@@ -3,19 +3,19 @@ import axios from "axios"
 import SpinnerLoader from "../components/Spinner"
 import ProductList from "../components/ProductList"
 import { configureStore } from "@reduxjs/toolkit"
-import moviesReducer from "../reducer/reducer"
+import ProductReducer from "../reducer/reducer"
 
 
 const store = configureStore({
-    reducer: moviesReducer
+    reducer: ProductReducer
   })
 
 export const listProductsEnCarrito = []
 export function InfoPanel () {
     const [loaded, setDataLoaded] = useState(false)
-    const [moviesData, setMoviesData] = useState([])
+    const [ProductsData, setProductsData] = useState([])
 
-    const addMovie = (product) => {
+    const addProduct = (product) => {
         store.dispatch({ type: 'ADD', product })
         alert(`Producto agregado: ${product.name}`)
         listProductsEnCarrito.push(product.name)
@@ -28,7 +28,7 @@ export function InfoPanel () {
                 const result = await axios.get('/data/datos.json')
                 if (result.data) {
                     setDataLoaded(true)
-                    setMoviesData(result.data)
+                    setProductsData(result.data)
                 }
             }
         }
@@ -42,7 +42,7 @@ export function InfoPanel () {
     return (
         <div className="App">
             <SpinnerLoader dataLoaded={loaded} />
-            <ProductList movies={moviesData} onAdd={addMovie} />
+            <ProductList products={ProductsData} onAdd={addProduct} />
         </div>
     )
 }
