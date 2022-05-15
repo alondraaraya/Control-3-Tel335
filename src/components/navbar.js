@@ -1,4 +1,4 @@
-import { Navbar, Container,Form,FormControl, ButtonGroup, Nav, Dropdown, DropdownButton } from 'react-bootstrap'
+import { Navbar, Container,Form,FormControl, Button, Nav, Dropdown, DropdownButton } from 'react-bootstrap'
 import BotonCarrito from './carrito'
 
 function barra(){

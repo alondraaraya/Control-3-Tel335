@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import SpinnerLoader from "../components/Spinner"
-import MoviesList from "../components/MoviesList"
+import MoviesList from "../components/ProductList"
 import { configureStore } from "@reduxjs/toolkit"
 import moviesReducer from "../reducer/reducer"
 

@@ -23,8 +23,8 @@ function BotonCarrito() {
           </Modal.Header>
           <Modal.Body>
             {
-            listmovies.map((movie)=>(
-            <Col>{movie.Title}</Col> ))
+            listmovies.map((movie, index)=>(
+            <Col key ={index}>{movie}</Col> ))
             }     
           </Modal.Body>
           <Modal.Footer>
