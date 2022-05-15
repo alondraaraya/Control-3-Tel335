@@ -15,11 +15,10 @@ return (
           className="me-2"
           aria-label="Buscar"
         />
-        <DropdownButton as={ButtonGroup} title="Buscar" id="bg-nested-dropdown">
-            <Dropdown.Item eventKey="1">Nombre producto</Dropdown.Item>
-            <Dropdown.Item eventKey="2">Marca producto</Dropdown.Item>
-            <Dropdown.Item eventKey="3">Id producto</Dropdown.Item>
-        </DropdownButton>
+        //agregar funcion de busqueda
+        <Button variant="primary" > 
+              Buscar
+            </Button>
       </Form>
       
       <Nav
