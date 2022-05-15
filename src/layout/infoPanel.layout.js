@@ -18,7 +18,7 @@ export function InfoPanel () {
     const addProduct = (product) => {
         store.dispatch({ type: 'ADD', product })
         alert(`Producto agregado: ${product.name}`)
-        listProductsEnCarrito.push(product.name)
+        listProductsEnCarrito.push(product)
 
     }
 

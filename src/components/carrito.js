@@ -22,9 +22,17 @@ function BotonCarrito() {
             <Modal.Title>Productos agregados</Modal.Title>
           </Modal.Header>
           <Modal.Body>
+          <Row>
+                <Col> Nombre </Col>
+                <Col>Precio </Col>
+            </Row>
             {
             listProductsEnCarrito.map((product, index)=>(
-            <Col key ={index}>{product}</Col> ))
+            <Row>
+                <Col key ={index}>{product.name}</Col>
+                <Col key ={index}>$: {product.precio}</Col>
+            </Row>
+             ))
             }     
           </Modal.Body>
           <Modal.Body>
