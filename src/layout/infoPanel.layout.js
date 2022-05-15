@@ -2,18 +2,24 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import SpinnerLoader from "../components/Spinner"
 import MoviesList from "../components/MoviesList"
-import { createStore } from "redux"
+import { configureStore } from "@reduxjs/toolkit"
 import moviesReducer from "../reducer/reducer"
 
-const store = createStore(moviesReducer)
 
-function InfoPanel () {
+const store = configureStore({
+    reducer: moviesReducer
+  })
+
+export const listmovies = []
+export function InfoPanel () {
     const [loaded, setDataLoaded] = useState(false)
     const [moviesData, setMoviesData] = useState([])
 
     const addMovie = (movie) => {
         store.dispatch({ type: 'ADD', movie })
-        alert(`Pelicula agregada: ${movie.Title}`)
+        alert(`Producto agregado: ${movie.Title}`)
+        listmovies.push(movie.Title)
+
     }
 
     useEffect(() => {
@@ -41,4 +47,3 @@ function InfoPanel () {
     )
 }
 
-export default InfoPanel

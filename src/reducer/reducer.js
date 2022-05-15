@@ -7,7 +7,7 @@
  * @param {*} previousState 
  * @param {*} action 
  */
-function moviesReducer (previousState = [], action) {
+function productosReducer (previousState = [], action) {
     switch (action.type) {
         case 'ADD':
             return [ ...previousState, action.movie ]
@@ -16,4 +16,4 @@ function moviesReducer (previousState = [], action) {
     }
 }
 
-export default moviesReducer
+export default productosReducer

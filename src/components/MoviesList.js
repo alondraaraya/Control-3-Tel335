@@ -1,4 +1,6 @@
 import { Container, Row, Col, Button } from "react-bootstrap"
+import React from "react";
+
 
 function MoviesList (props) {
     return (
@@ -12,7 +14,9 @@ function MoviesList (props) {
                                     <div key={index} className='row'>
                                         <Row>
                                             <Col><h2>{movie.Title}</h2></Col>
-                                            <Col><Button variant="danger" size="sm" onClick={() => props.onAdd(movie)}>Agregar</Button></Col>
+                                            <Col><h3>precio</h3></Col>
+                                            <Col><h3>marca</h3></Col>
+                                            <Col><Button variant="primary" size="sm" onClick={() => props.onAdd(movie)}>Agregar</Button></Col>
                                         </Row>
                                     </div>
                                 ))
