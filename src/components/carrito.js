@@ -1,13 +1,23 @@
 import { Row, Col, Button, Modal } from 'react-bootstrap'
 import React, { useState } from 'react';
-import {listProductsEnCarrito} from '../layout/infoPanel.layout'
-
+import {listProductsEnCarrito, listProductsEnCarrito2} from '../layout/infoPanel.layout'
+import axios from 'axios'
 
 function BotonCarrito() {
     const [show, setShow] = useState(false);
-  
+    let listProducstsEnCarrito2 = []
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    axios.get('http://localhost:3001/carrito/productos')
+    .then(response => {
+        // Obtenemos los datos
+        listProducstsEnCarrito2.unshift(response.data)
+    })
+    .catch(e => {
+        // Capturamos los errores
+    })
+
+    let listaProductos = listProductsEnCarrito2[0]
 
   
   
@@ -25,7 +35,7 @@ function BotonCarrito() {
           <Row>
                 <Col> Nombre </Col>
                 <Col>Precio </Col>
-            </Row>
+            </Row>,
             {
             listProductsEnCarrito.map((product, index)=>(
             <Row>
